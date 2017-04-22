@@ -1,0 +1,563 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Page -- writing articles</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
+
+
+
+        <style type="text/css">
+
+          body { font-family: "Crimson Text",Times,"Times New Roman",Georgia,serif;}
+          p {font-size: 21px;line-height: 31.5px; }
+          h1, h2, h3, h4, h5, h6 { font-family: 'Lora', sans-serif; }
+          .entry-content p { color: rgba(26,26,26,.75); }
+
+          #page {
+            max-width:960px; margin: 0 auto; }
+          #masthead, #site-navigation {
+            margin: 25px; }
+          .custom-logo {
+            width:100px; height:100px; border-radius:3px; float:left; margin-right:25px; }
+          .site-branding { float: left; }
+          #site-navigation { float: right; text-align: right; }
+          #site-navigation ul { list-style: none; margin: 0; padding: 0;}
+          #site-navigation li { display: inline; }
+          #site-navigation li { font-size: 18px; margin-right: 15px;}
+          #site-navigation li:last-child { margin-right: none; }
+
+          #hero {
+            background:#168eea; margin: 25px 0; border-radius: 3px;}
+          #hero .hero-text { width: 80%; padding: 50px; margin: 0 auto;}
+          #hero .email-signup { background: rgba(0,0,0,.06); }
+          .email-copy { width: 80%; padding: 25px; margin: 0 auto;}
+
+          #articles {
+            float:left; width: 64%; }
+          .card { width: 45%; min-height:300px; border-radius: 3px; float:left; margin: 0 15px 15px 0; background-color:#fafafa;}
+          .has-post-thumbnail { min-height: 300px;}
+          .card-title { padding: 50px 15px 5px 15px; }
+          #post-list { padding-left:15px; }
+
+          #secondary {
+            float:right; width: 32%; }
+
+          #colophon {
+            background:#fafafa; margin: 25px 0; border-radius: 3px;}
+          #colophon .site-info { width: 80%; padding: 50px 15px;}
+
+          .hentry { min-width: 850px; padding-top: 25px; margin-left:25px; }
+
+          .post .entry-header {  }
+          .featured-image {  width:100%; border-radius: 3px; }
+          .entry-content { width: 650px; }
+
+/* in post */
+
+          a { color: #168eea; text-decoration: none; border-bottom: 2px solid rgba(22,142,234,0.6)}
+          a.link-box { padding: 5px 4px; border-radius: 3px; background-color: #cdcdcd; color:rgba(26,26,26,.75); border-bottom: none; }
+          a.link-box:hover { background-color: rgba(22,142,234,0.6); color: #000000;}
+
+          p.lead { font-size: 24px; }
+          .entry-content img {  border-radius: 3px;  max-width:100%; }
+
+          .alignnone {max-width: 110% !important; margin-left:-5%; }
+          .alignleft { float:left;  margin:15px 25px 15px -25px;}
+          .alignright { float:right;  margin: 15px -25px 15px 25px;}
+          .aligncenter {  margin: 0 auto;  display:inherit; }
+
+          .wp-caption-text {  font-size:16px;  color:#cdcdcd;  padding-bottom:5px;  border-bottom: 1px solid #f1f1f1; }
+
+          code {
+            padding: .2rem .5rem;
+            margin: 0 .2rem;
+            font-size: 90%;
+            white-space: nowrap;
+            background: #F1F1F1;
+            border: 1px solid #E1E1E1;
+            border-radius: 4px; }
+          pre > code {
+            display: block;
+            padding: 1rem 1.5rem;
+            white-space: pre; }
+
+            th,
+            td {
+              padding: 12px 15px;
+              text-align: left;
+              border-bottom: 1px solid #E1E1E1; }
+            th:first-child,
+            td:first-child {
+              padding-left: 0; }
+            th:last-child,
+            td:last-child {
+              padding-right: 0; }
+
+              blockquote {
+                font-weight: 900;
+                -webkit-font-smoothing: antialiased;
+                padding-left: 5%;
+                margin:5%;
+                color: #404040;
+                border-left: 3px solid #404040;
+                font-size: 28px;
+                line-height: 1.5;
+                max-width: 77rem;
+              }
+              /* Larger than mobile */
+              @media (min-width: 750px) {
+                blockquote {
+                  margin-left:2%;
+                  margin-right:25%;
+                }
+              }
+
+              blockquote.bigquote {
+                font-size: 36px;
+              }
+
+              blockquote.pullquote {
+                float: right;
+                margin-right: -25%;
+                max-width: 50%;
+                margin-left: 8%;
+              }
+
+              ul {
+                list-style: disc; }
+              .entry-content ul {
+                list-style: disc; padding-left: 3% !important;
+              }
+              ol {
+                list-style: decimal inside; }
+              ol, ul {
+                padding-left: 0;
+                margin-top: 0;
+                margin-left: 3%;
+                font-size:21px;
+                color: rgba(26,26,26,.75);
+              }
+              ul ul,
+              ul ol,
+              ol ol,
+              ol ul {
+                margin: 1.5rem 0 1.5rem 1.5rem;
+                font-size: 90%; }
+              li {
+                margin-bottom: 1rem; }
+
+              .entry-header {
+                width: 850px;}
+
+              .entry-text {
+                font-size: 120%;}
+                .entry-meta { margin-bottom:25px;}
+
+              .featured-image-block {
+                max-width: 110%; margin-left:-5%; margin-bottom: 40px; }
+
+              .btn {
+                border-radius: 3px;
+                background: #168eea; color: #fff; box-shadow: 0 6px #1171bb;
+                border: none;font-family: inherit; font-size: 125%; cursor: pointer; padding: 15px 30px; display: inline-block; margin: 15px 0; font-weight: 700; outline: none; position: relative;}
+              .btn:hover { box-shadow: 0 4px #1171bb; top: 2px; }
+              .large { padding: 25px 80px; }
+              .small { font-size: 90%; padding: 5px 15px;}
+              .blue {
+                background: #168eea; color: #fff; box-shadow: 0 6px #1171bb; }
+              .blue:hover { box-shadow: 0 4px #1171bb; top: 2px; }
+              .white {
+                border: 1px solid #d1d1d1; background: #ffffff; color: rgba(26,26,26,.75); font-weight:500; box-shadow: 0 6px #8c8c8c;  }
+              .white:hover { box-shadow: 0 4px #8c8c8c; top: 2px; }
+
+              #colophon {
+                background:#033860; margin: 25px 0; border-radius: 3px; border-image: url(http://i.imgur.com/gvvL3u8.png) 50 round; border-top: 5px solid; color: white; }
+              #colophon .site-info { width: 400px; padding: 50px 15px; margin: 0 auto; text-align: center;}
+              #colophon a { color: white; border-bottom: 2px solid white; font-weight: 500;}
+
+        </style>
+
+
+    </head>
+    <body class="blog single single-post">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<div id="page" class="site">
+
+  <!-- Header -->
+
+      <header id="masthead" class="site-header" role="banner">
+    			<a href="#" class="custom-logo-link" rel="home" itemprop="url"><img width="248" height="243" src="https://pbs.twimg.com/profile_images/744803216278204416/8fRHJMm3.jpg" class="custom-logo" alt="" itemprop="logo"></a>
+        <div class="site-branding">
+					<h1 class="site-title"><a href="file:///Users/kevanlee/Desktop/Wordpress%20Theme/index.html" rel="home">Kevan</a></h1>
+						<p class="site-description">Director of Marketing at Buffer. Good to see you!</p>
+  			</div><!-- .site-branding -->
+      </header><!-- #masthead -->
+
+      <nav id="site-navigation" class="main-navigation" role="navigation">
+        <div class="menu-main-menu-container">
+          <ul id="menu-main-menu" class="nav-menu">
+            <li class="menu-item"><a href="#">Home</a></li>
+            <li class="menu-item"><a href="#">Writing</a></li>
+            <li class="menu-item"><a href="#">Link</a></li>
+          </ul>
+        </div>
+      </nav><!-- #site-navigation -->
+      <div style="clear:both;"></div>
+
+
+
+  <!-- Articles -->
+
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+
+      <article id="post-36" class="post-36 post type-post status-publish format-standard hentry category-uncategorized">
+
+        <header class="entry-header">
+          <div class="entry-text">
+          <h1 class="entry-title">The 51 Best Writing Articles I’ve Ever Read</h1>
+          <div class="entry-meta">
+            <span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://wp-themes.com/?author=1">Kevan Lee</a></span></span>
+          </div><!-- .entry-meta -->
+          </div><!-- .entry-text -->
+          <div class="featured-image-block">
+            <img class="wp-image-59 featured-image" alt="Boat" src="http://i.imgur.com/9IXZFL1.png" >
+            <p class="wp-caption-text">Record store image, courtesy Unsplash</p>
+          </div>
+        </header>
+
+
+
+        <div style="clear: both;"></div>
+
+      	<div class="entry-content">
+
+            <p class="lead tk-fira-sans">You want to be the world’s best online writer, a David Ogilvy of the blogs, a Shakespeare of the social media. Or maybe you just want to be good enough to get by on freelance writing.</p>
+            <p>Where do you get your education?</p>
+            <p>How do you improve?</p>
+            <p>I’ve faced these same questions, and I still face these questions as I aim to keep improving as an online writer. I majored in journalism in college. There wasn’t a content marketing course back in the day.</p>
+            <p>Everything I’ve learned has been self-taught.</p>
+            <p>And I’d love to share some of my favorite lessons.</p>
+            <p>I’ve emptied my swipe file. What you see here is everything I’ve starred and saved over the past five years. If you want to learn more about writing for the web, content marketing, and the most persuasive way to communicate online, I think here’s a pretty good place to start.</p>
+            <p><span id="more-986195073"></span></p>
+            <h2><strong>The Nuts and Bolts of Web Writing</strong></h2>
+            <h3><strong>1.&nbsp;<a href="http://snarkmarket.com/2010/4890">Stock &amp; Flow: The Ideal Writing Mix for Your Online Content</a></strong></h3>
+            <p><a href="http://snarkmarket.com/2010/4890"><em>by Robin Sloane, Snark Market</em></a></p>
+            <p>Stock is your evergreen, tentpole content that draws traffic from the moment of publish to the end of time. Flow is the filler, the stuff that keeps your blog churning or your social media streams full. Check out the article for details.</p>
+            <p><strong>2.&nbsp;<a href="http://www.gregoryciotti.com/ogilvy-last-will/">David Ogilvy’s 10 Most Valuable Lessons on&nbsp;Advertising</a></strong></p>
+            <p><em>by&nbsp;<a href="http://www.gregoryciotti.com/ogilvy-last-will/">Gregory Ciotti</a></em></p>
+            <p>Ogilvy is widely considered the father of modern advertising, and his 10 most valuable lessons contain advice that worked when he wrote it in the 1960s and that work for online&nbsp;writers&nbsp;today. Here’s lesson #2 of 10.</p>
+            <blockquote>The temptation to entertain instead of selling is contagious.</blockquote>
+            <p><strong>3.&nbsp;<a href="http://www.business2community.com/content-marketing/web-copy-sells-9-cant-fail-formulas-0872800#14LHJdT72ufYQhVx.99">Web Copy That Sells: 9 Can’t-Fail Formulas</a></strong></p>
+            <p><em>by <a href="http://www.business2community.com/content-marketing/web-copy-sells-9-cant-fail-formulas-0872800#14LHJdT72ufYQhVx.99">Karri Stover, Business 2 Community</a></em></p>
+            <p>Pretty much the cream of the crop for&nbsp;copywriting formulas. Appetizer. Main course to follow.</p>
+            <p><strong>4. <a href="https://blog.bufferapp.com/copywriting-formulas">If Don Draper Tweeted: The 27 Copywriting Formulas That Will Drive&nbsp;Clicks and Engagement</a></strong></p>
+            <p><em>by <a href="https://blog.bufferapp.com/copywriting-formulas">Kevan Lee, Buffer</a></em></p>
+            <p>Shameless plug alert! I wrote this article, but I didn’t really&nbsp;<em>write</em> it. All the formulas listed here are the incredible work of super smart writers and advertisers. It’s all them, none me.</p>
+            <p><strong>5.&nbsp;<a href="http://www.copyblogger.com/problem-agitate-solve/">Master This Copywriting Formula to Dominate Any Social Media Platform</a></strong></p>
+            <p><em>by <a href="http://www.copyblogger.com/problem-agitate-solve/">Demian Farnworth, Copyblogger</a></em></p>
+            <p>Last copywriting formula link, I swear! This one’s great if you want to get deep into one, single, can’t-miss formula for writing on social media or blogs.</p>
+            <p><strong>6.&nbsp;<a href="https://www.linkedin.com/pulse/article/20140625202140-19647510-my-all-time-favorite-blog-post-and-why-it-s-so-great?utm_campaign=buffer&amp;amp;midToken=AQE1R85WIPpYmQ&amp;amp;utm_medium=social&amp;amp;trk=eml-ced-b-art-M-0-7077213193446165871&amp;amp;fromEmail=fromEmail&amp;amp;ut=366vib6WIm0Ck1&amp;amp;utm_content=buffer6cf3c&amp;amp;utm_source=twitter%2Ecom">My All Time Favorite Blog Post And Why It’s So Great</a></strong></p>
+            <p><em>by <a href="https://www.linkedin.com/pulse/article/20140625202140-19647510-my-all-time-favorite-blog-post-and-why-it-s-so-great?utm_campaign=buffer&amp;amp;midToken=AQE1R85WIPpYmQ&amp;amp;utm_medium=social&amp;amp;trk=eml-ced-b-art-M-0-7077213193446165871&amp;amp;fromEmail=fromEmail&amp;amp;ut=366vib6WIm0Ck1&amp;amp;utm_content=buffer6cf3c&amp;amp;utm_source=twitter%2Ecom">Jason Miller</a></em></p>
+            <p>Jason’s post on LinkedIn offers a great review of the factors that go into an all-time great post. Just a sampling of factors:</p>
+            <ul>
+            <li>Unique voice</li>
+            <li>Easy to read</li>
+            <li>Has personality</li>
+            <li>Has fantastic visuals</li>
+            <li>Useful and inspiring</li>
+            </ul>
+            <p><strong>7.&nbsp;<a href="http://avc.com/2011/09/minimum-viable-personality/">Minimum Viable Personality</a></strong></p>
+            <p><em>by <a href="http://avc.com/2011/09/minimum-viable-personality/">FakeGrimlock</a></em></p>
+            <p>Here’s the post that Jason Miller references as his “favorite blog post” of all time. It’s written from the point of view of a dinosaur.</p>
+            <a href="https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/10/05f0992.jpg"><img class="aligncenter size-large wp-image-986195137" src="https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/10/05f0992.jpg?resize=573%2C328" alt="05f0992" srcset="https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/10/05f0992.jpg?resize=573%2C328 573w, https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/10/05f0992.jpg?resize=300%2C171 300w, https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/10/05f0992.jpg?w=576 576w" sizes="(max-width: 573px) 100vw, 573px" width="573" height="328"></a>
+            <p><strong>8.&nbsp;<a href="http://thecopybot.com/2013/08/minimalists-better-writer/">The Minimalist’s Guide to Becoming a Better Writer</a></strong></p>
+            <p><em>by</em><a href="http://thecopybot.com/2013/08/minimalists-better-writer/"><em> Demian Farnworth, Copybot</em></a></p>
+            <p>Simple tips in 3 basic categories—reading, writing, and critiquing—to help you be a better writer.</p>
+            <p><strong>9.&nbsp;<a href="http://businesscasualcopywriting.com/write-like-reader-pee-pants/">Write Like Your Reader Is About to Pee Their Pants</a></strong></p>
+            <p><em>by <a href="http://businesscasualcopywriting.com/write-like-reader-pee-pants/">Joel Klettke, Business Casual Copywriting</a></em></p>
+            <p>This post is a kickoff to Joel’s month of posts of fewer than 250 words. The premise: Your reader has to pee really bad, so you best get to your point. The 250-word post challenge is a fun one to keep in mind, too.</p>
+            <h2>Content Marketing&nbsp;Advice</h2>
+            <p><strong>10.&nbsp;<a href="http://www.slideshare.net/randfish/why-content-marketing-fails">Why Content Marketing Fails</a></strong></p>
+            <p><em>by <a href="http://www.slideshare.net/randfish/why-content-marketing-fails">Rand Fishkin</a></em></p>
+            <p>It’s an article wrapped in a SlideShare with amazing takeaways for articles. If you work backward from the title (Why Content Marketing&nbsp;<em>Fails</em>), you’ll have a pretty awesome case for How Content Marketing <em>Succeeds</em>.</p>
+
+            <p><strong>11.&nbsp;<a href="http://blog.hubspot.com/blog/tabid/6307/bid/33510/12-Things-You-Should-Be-Using-Your-Blog-For-Besides-Blogging.aspx">12 Things You Should Be Using Your Blog For (Besides Blogging)</a></strong></p>
+            <p><em>by <a href="http://blog.hubspot.com/blog/tabid/6307/bid/33510/12-Things-You-Should-Be-Using-Your-Blog-For-Besides-Blogging.aspx">Corey Eridon, Hubspot</a></em></p>
+            <p>My favorite tip: Go into your old blog posts and make them great.</p>
+            <p><strong>12.&nbsp;<a href="https://blog.kissmetrics.com/hollywood-secret-to-copy/">Use this Hollywood Secret to Write Addicting Opt-In Copy</a></strong></p>
+            <p><em>by <a href="https://blog.kissmetrics.com/hollywood-secret-to-copy/">Felicia Spahr, KISSmetrics</a></em></p>
+            <p>Spoiler alert: The secret is Open Loops, and they work like this (click through to the story for some cool examples, including one from Buffer):</p>
+            <blockquote><p>Open Loops in TV shows are the equivalent of that cliffhanger that keeps you up at night, consuming your mind with thinking about what’s going to happen the next week, or that story line that was never quite explained. Those aren’t just “blips” in a script. They are put there so that it’s harder for people to get up off the couch than it is to stay and watch “just one more episode.”</p></blockquote>
+            <p><strong>13.&nbsp;<a href="http://www.gregoryciotti.com/content-strategy/">25 Lessons from 25 Months of Content Marketing</a></strong></p>
+            <p><em>by <a href="http://www.gregoryciotti.com/content-strategy/">Gregory Ciotti</a></em></p>
+            <p>One of my favorite lessons: Don’t forget about “solved” problems. In the case of Men’s Health, they’ve found that the market for fitness information is so great that their “solved” headlines can work over and over again.</p>
+            <a href="https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/M4XWXmw.png"><img class="alignnone size-large wp-image-986195170" src="https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/M4XWXmw.png?resize=573%2C378" alt="men's health repeated headlines" srcset="https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/M4XWXmw.png?resize=573%2C378 573w, https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/M4XWXmw.png?resize=300%2C198 300w, https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/M4XWXmw.png?w=636 636w" sizes="(max-width: 573px) 100vw, 573px" width="573" height="378"></a>
+            <p><strong>14.&nbsp;<a href="http://coschedule.com/blog/running-a-high-traffic-blog">5 Breakthrough Techniques For Running A High-Traffic Blog</a></strong></p>
+            <p><em>by <a href="http://coschedule.com/blog/running-a-high-traffic-blog">Garrett Moon, CoSchedule</a></em></p>
+            <p>Cool, beautiful stuff from the CoSchedule blog:</p>
+            <a href="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/5-steps-breakthrough-blog.png"><img class="alignnone size-large wp-image-986195169" src="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/5-steps-breakthrough-blog.png?resize=573%2C881" alt="5-steps-breakthrough-blog" srcset="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/5-steps-breakthrough-blog.png?resize=573%2C881 573w, https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/5-steps-breakthrough-blog.png?resize=195%2C300 195w, https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/5-steps-breakthrough-blog.png?w=770 770w" sizes="(max-width: 573px) 100vw, 573px" width="573" height="881"></a>
+            <p><strong>15.&nbsp;<a href="http://www.copyblogger.com/agile-content-marketing/">How Stand-up Comedians Come Up With Content (and What It Means for You)</a></strong></p>
+            <p><em>by Brian Clark, Copyblogger</em></p>
+            <p>Brian calls the big idea here Agile Marketing, with a key learning to optimize constantly based on feedback. Good stuff.</p>
+            <p><strong>16.&nbsp;<a href="https://medium.com/i-love-charts/ive-been-blogging-for-8-freaking-years-8ee71659d4c6">What I’ve Learned in 8 Years of Blogging</a></strong></p>
+            <p><em>by Jessica Hagy, Medium</em></p>
+            <p>A short, two-minute read, this fun piece on Medium hits on some of the unspoken truths of content marketing.</p>
+            <blockquote><p>You have to make time to make things.<br>
+            And it’s worth it to find it and protect it.</p></blockquote>
+            <p><strong>17.&nbsp;<a href="http://www.quicksprout.com/2014/07/18/the-6-elements-of-a-powerful-blog-post/">The 6 Elements of a Powerful Blog Post</a></strong></p>
+            <p><em>by <a href="http://www.quicksprout.com/2014/07/18/the-6-elements-of-a-powerful-blog-post/">Neil Patel, Quick Sprout</a></em></p>
+            <p>This beautiful infographic from Neil covers things like images, layout, voice, and social media.</p>
+            <p><strong>18.&nbsp;<a href="http://blog.ghost.org/fastest-way-to-blog/">How to Boost Your&nbsp;Blog Post Production Speed by 600%</a></strong></p>
+            <p><em>by <a href="http://blog.ghost.org/fastest-way-to-blog/">John O’Nolan, Ghost</a></em></p>
+            <p>If you’re looking for a new blogging method, give John’s a try. I was fortunate to stumble onto many of the techniques he mentions here (ideas, outlines, etc.) and I would have been better off for finding his post first.</p>
+            <p><strong>19.&nbsp;<a href="http://www.orbitmedia.com/blog/marketing-diagrams/">7 Marketing Diagrams That Explain Content Marketing</a></strong></p>
+            <p>by <a href="http://www.orbitmedia.com/blog/marketing-diagrams/"><em>Andy Crestodina, Orbit Media</em></a></p>
+            <p>Here’s one to blow your mind: Think of content as hubs. You can write on a single topic at different depths to come up with a huge number of individual articles: high-level list posts, overview of a topic in a list item, and in-depth post about an element of the topic.</p>
+            <a href="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/graphic1.jpg"><img class="alignnone size-large wp-image-986195171" src="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/graphic1.jpg?resize=573%2C399" alt="graphic1" srcset="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/graphic1.jpg?resize=573%2C399 573w, https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/graphic1.jpg?resize=300%2C209 300w, https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/graphic1.jpg?w=610 610w" sizes="(max-width: 573px) 100vw, 573px" width="573" height="399"></a>
+            <p>There are six more insights from Andy in the article, each are just as good.</p>
+            <p><strong>20.&nbsp;<a href="http://www.problogger.net/archives/2014/06/03/publish-your-blog-post-without-seo-and-1000s-of-visits-will-be-forever-lost/">Publish Your Blog Post Without SEO, and 1000s of Visits Will Be Forever Lost</a></strong></p>
+            <p><em>by <a href="http://www.problogger.net/archives/2014/06/03/publish-your-blog-post-without-seo-and-1000s-of-visits-will-be-forever-lost/">Rand Fishkin</a></em></p>
+            <p>The best case you can make for focusing on SEO (even a little bit) with the content you produce.</p>
+            <p><strong>21.&nbsp;<a href="http://www.copyblogger.com/common-blogging-mistakes/">11 Common Blogging Mistakes That Are Wasting Your Audience’s Time</a></strong></p>
+            <p><em>by Henneke, Copyblogger</em></p>
+            <p>I use this post to check in every so often to make sure I haven’t fallen into any of these bad habits. The need to publish daily is a constant one for me.</p>
+            <p><strong>22.&nbsp;<a href="http://www.gregoryciotti.com/guest-blogging">Guest Blogging Strategies that Helped Grow 36,733 Email Subscribers</a></strong></p>
+            <p><em>by <a href="http://www.gregoryciotti.com/guest-blogging">Gregory Ciotti</a></em></p>
+            <p>The article closing strategy alone is worth the price of admission.</p>
+            <p><strong>23.&nbsp;<a href="http://blog.bufferapp.com/how-we-manage-a-blog-with-700000-readers-per-month?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+bufferapp+%28Updates+and+tips+from+Buffer%29">From Ideas to Traffic Results: How We Run a Blog with 700,000 Readers Per Month</a></strong></p>
+            <p><em>by <a href="http://blog.bufferapp.com/how-we-manage-a-blog-with-700000-readers-per-month?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+bufferapp+%28Updates+and+tips+from+Buffer%29">Belle Beth Cooper, Buffer</a></em></p>
+            <p>This one first got me hooked into running and writing a blog of my own. Belle shares an incredibly deep and transparent look at how Buffer runs things.</p>
+            <p><strong>24.&nbsp;<a href="http://www.copyblogger.com/get-ideas/">How to Find More Content Ideas than You’ll Ever be Able to Create</a></strong></p>
+            <p><em>by Peter Shallard, Copyblogger</em></p>
+            <p>Never be short on blogging ideas again.</p>
+            <p><strong>25.&nbsp;<a href="http://www.nobledirectmarketing.com/2014/11/15/28-ways-write-moneymaking-headlines/">28 Ways to Write Moneymaking Headlines</a></strong></p>
+            <p><em>by Noble Direct Marketing</em></p>
+            <p>There are tons of actionable insights here from ad legend John Caples—everything from the specific words to use (“Introducing” and “Finally!”) to the styles to try.</p>
+            <p><strong>26.&nbsp;<a href="http://www.copyblogger.com/5-simple-ways-to-open-your-blog-post-with-a-bang/">5 Simple Ways to Open Your Blog Post with a Bang</a></strong></p>
+            <p><em>by Brian Clark, Copyblogger</em></p>
+            <p>Simple but important.</p>
+            <p><strong>27.&nbsp;<a href="http://thinktraffic.net/the-3-keys-to-effective-guest-posting">The 3 Keys to Effective Guest Posting</a></strong></p>
+            <p><em>by James Agate, Think Traffic</em></p>
+            <p>I started thinking about the possibilities of guest posting thanks to Think Traffic founder Corbett Barr’s blogposts and articles on the topic. This article (a guest post about guest posting—meta!) has some super advice.</p>
+            <p><strong>28.&nbsp;<a href="http://www.blindfiveyearold.com/readability-and-seo">It’s Not What You Say, It’s How You Present It</a></strong></p>
+            <p><em>by <a href="http://www.blindfiveyearold.com/readability-and-seo">A.J. Kohn, Blind Five-Year-Old</a></em></p>
+            <p>Here’s one that I failed to consider for a long time: the readability of what you write. Now I often picture what a post will look like as someone reads/scans, along with what I’ll actually be writing. How’d I do on this post by the way?</p>
+            <a href="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/10/easy-to-read-blog-posts.png"><img class="alignnone wp-image-986195111 size-large" src="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/10/easy-to-read-blog-posts.png?resize=573%2C383" alt="easy-to-read-blog-posts" srcset="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/10/easy-to-read-blog-posts.png?resize=573%2C383 573w, https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/10/easy-to-read-blog-posts.png?resize=300%2C200 300w, https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/10/easy-to-read-blog-posts.png?w=617 617w" sizes="(max-width: 573px) 100vw, 573px" width="573" height="384"></a>
+            <h2>Writing Inspiration</h2>
+            <p><strong>29.&nbsp;<a href="http://blog.pickcrew.com/become-creative/">How to Be More Creative in 5 Simple Steps</a></strong></p>
+            <p><em>by <a href="http://blog.pickcrew.com/become-creative/">Jeremy Duvall, Crew</a></em></p>
+            <p>Creativity is 85 percent a learned skill. Wow. Really? If that’s the case, it’s so great to have resources like this one from Jeremy that cover the topic so deeply. The creativity training routine he outlines is top-notch.</p>
+            <a href="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/creativity-exercise.png"><img class="alignnone size-large wp-image-986195173" src="https://i2.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/creativity-exercise-573x651.png?resize=573%2C651" alt="creativity exercise" srcset="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/creativity-exercise.png?resize=573%2C651 573w, https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/creativity-exercise.png?resize=263%2C300 263w, https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/creativity-exercise.png?w=864 864w" sizes="(max-width: 573px) 100vw, 573px" width="573" height="651"></a>
+            <p><strong>30.&nbsp;<a href="http://waitbutwhy.com/2014/05/life-weeks.html">Your Life in Weeks</a></strong></p>
+            <p><em>by <a href="http://waitbutwhy.com/2014/05/life-weeks.html">Tim Urban, Wait But Why</a></em></p>
+            <p>Fair enough, this one has little to do with writing other than a huge motivation to make each day count.</p>
+            <a href="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/your-life-in-weeks.png"><img class="alignnone size-large wp-image-986195172" src="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/your-life-in-weeks.png?resize=573%2C906" alt="your life in weeks" srcset="https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/your-life-in-weeks.png?resize=573%2C906 573w, https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/your-life-in-weeks.png?resize=189%2C300 189w, https://i1.wp.com/www.kevanlee.com/wp-content/uploads/2014/11/your-life-in-weeks.png?w=1204 1204w" sizes="(max-width: 573px) 100vw, 573px" width="573" height="906"></a>
+            <p><strong>31.&nbsp;<a href="http://zenhabits.net/great/">How to Be Great</a></strong></p>
+            <p><em>by <a href="http://zenhabits.net/great/">Leo Babauta, Zen Habits</a></em></p>
+            <p>I wish I could copy/paste the whole thing right here so you could read right away. Every time I breeze through this one I want to go out and create something.</p>
+            <p><strong>32.&nbsp;<a href="http://fizzle.co/sparkline/failure-option">Failure Is an Option</a></strong></p>
+            <p><em>by <a href="http://fizzle.co/sparkline/failure-option">Chase Reeves, Fizzle</a></em></p>
+            <p>One hurdle I often face with writing something is a fear that it might fail. Turns out, failure is perfectly alright.</p>
+            <p><strong>33.&nbsp;<a href="https://medium.com/small-giants/the-creators-code-78fb9b6a9b54">The Creators Code</a></strong></p>
+            <p><em>by <a href="https://medium.com/small-giants/the-creators-code-78fb9b6a9b54">Hiut Denim Co, Medium</a></em></p>
+            <p>A short one from Medium, this 60-word manifesto is a superb reminder of why and how we&nbsp;do what we do.</p>
+            <p><strong>34.&nbsp;<a href="https://idonethis.com/about/slow-web/">At iDoneThis, we believe in taking it slow.</a></strong></p>
+            <p><em>by <a href="https://idonethis.com/about/slow-web/">Walter Chen, iDoneThis</a></em></p>
+            <p>The slow web movement is something really close to my heart and, I believe, close for&nbsp;a lot of writers, too. Online writing runs the risk of being shouted down by the noise of a busy Internet. What the team at iDoneThis has shared is that there’s another way—a quieter, simpler way that might just improve the writing work we all do.</p>
+            <p><strong>35.&nbsp;<a href="http://sethgodin.typepad.com/seths_blog/2013/06/the-5000th-post.html">The 5000th post*</a></strong></p>
+            <p><em>by <a href="http://sethgodin.typepad.com/seths_blog/2013/06/the-5000th-post.html">Seth Godin</a></em></p>
+            <p>In typical Godin fashion, this one’s brief. But it does outline several of the lessons he’s learned in reaching the 5,000-post milestone. To paraphrase one of my favorite parts:</p>
+            <blockquote><p>Don’t write&nbsp;because it’s your job, write&nbsp;because you can.</p></blockquote>
+            <p><strong>36.&nbsp;<a href="https://medium.com/human-parts/how-to-be-a-writer-dfdcf0c7b961">What should you do to help your child pursue her dreams of becoming a writer?</a></strong></p>
+            <p><em>by <a href="https://medium.com/human-parts/how-to-be-a-writer-dfdcf0c7b961">M. Molly Backes, Medium</a></em></p>
+            <blockquote><p>First of all, let her be bored. Let her have long afternoons with absolutely nothing to do. Limit her TV-watching time and her internet-playing time and take away her cell phone. Give her a whole summer of lazy mornings and dreamy afternoons. Make sure she has a library card and a comfy corner where she can curl up with a book. Give her a notebook and five bucks so she can pick out a great pen. Insist she spend time with the family. It’s even better if this time is spent in another state, a cabin in the woods, a cottage on the lake, far from her friends and people her own age. Give her some tedious chores to do. Make her mow the lawn, do the dishes by hand, paint the garage. Make her go on long walks with you and tell her you just want to listen to the sounds of the neighborhood.</p></blockquote>
+            <p>It gets better from there (and before there, too). Molly is a teacher and author who certainly knows her stuff. I want to print this article out and hand it to every middle school child.</p>
+            <p><strong>37.&nbsp;<a href="https://medium.com/@harrissockel/how-to-hack-writing-a-personal-essay-b49921baa032">How To Hack Writing A Personal Essay</a></strong></p>
+            <p><em>by <a href="https://medium.com/@harrissockel/how-to-hack-writing-a-personal-essay-b49921baa032">Harris Sockel, Medium</a></em></p>
+            <p>Some really great, actionable tips in this one, going beginning to end with how to create a personal essay from scratch.</p>
+            <p><strong>38.&nbsp;<a href="http://www.sparringmind.com/creative-thinking/">How to Encourage More Creative Thinking</a></strong></p>
+            <p><em>by <a href="http://www.sparringmind.com/creative-thinking/">Gregory Ciotti, Sparring Mind</a></em></p>
+            <p>Did you know: Dr. Seuss produced Green Eggs &amp; Ham after he bet his&nbsp;editor he could&nbsp;produce an entire book in under 50 different words. Really cool insights and examples from Gregory.</p>
+            <p><strong>39.&nbsp;<a href="http://thisisnthappiness.com/post/47730611276/the-25-greatest-quotes-about-writing">The 25 Greatest Quotes About Writing</a></strong></p>
+            <p><em>via <a href="http://thisisnthappiness.com/post/47730611276/the-25-greatest-quotes-about-writing">This Isn’t Happiness</a></em></p>
+            <p>Just a really great collection of inspiration. One of my favorites (from Kafka, kind of an ironic inspiration):</p>
+            <blockquote><p>“Don’t bend; don’t water it down; don’t try to make it logical; don’t edit your own soul according to the fashion. Rather, follow your most intense obsessions mercilessly.”</p></blockquote>
+            <h2>Writing Productivity</h2>
+            <p><strong>40.&nbsp;<a href="http://99u.com/workbook/15206/bring-sanity-to-your-to-do-list-with-the-1-3-5-rule">Bring Sanity to Your To-Do List With the 1-3-5 Rule</a></strong></p>
+            <p><em>by <a href="http://99u.com/workbook/15206/bring-sanity-to-your-to-do-list-with-the-1-3-5-rule">Sam Spurlin, 99U</a></em></p>
+            <p>Write down one big thing, three medium things, and five little things to do each day. Then do them!</p>
+            <p><strong>41.&nbsp;<a href="http://jamesclear.quora.com/How-to-Stop-Procrastinating-by-Using-The-2-Minute-Rule">How to Stop Procrastinating by Using The “2-Minute Rule”</a></strong></p>
+            <p><em>by <a href="http://jamesclear.quora.com/How-to-Stop-Procrastinating-by-Using-The-2-Minute-Rule">James Clear, Quora</a></em></p>
+            <p>James is one of my favorite voices on productivity and getting more from yourself and your day. The 2-Minute Rule breaks down like this (lots more examples and background in James’s post).</p>
+            <ul>
+            <li>Part 1 — If it takes less than two minutes, then do it now.</li>
+            <li>Part 2 — When you start a new habit, it should take less than two minutes to do.</li>
+            </ul>
+            <p><strong>42.&nbsp;<a href="http://www.quicksprout.com/2014/06/30/how-to-streamline-your-content-creation/">How I Write 8 Blog Posts a Week While Running 2 Companies</a></strong></p>
+            <p><em>by <a href="http://www.quicksprout.com/2014/06/30/how-to-streamline-your-content-creation/">Neil Patel, Quick Sprout</a></em></p>
+            <p>The headline here says it all. Neil is a busy guy, so it’s amazing to peek inside his writing process. I’ve adopted his “intro/conclusion” technique for the blogposts I write, and it’s been a big time saver.</p>
+            <p><strong>43.&nbsp;<a href="http://www.nerdfitness.com/blog/2012/08/13/productivity/">5 Ways to Instantly Become More Productive</a></strong></p>
+            <p><em>by <a href="http://www.nerdfitness.com/blog/2012/08/13/productivity/">Steve Kamb, Nerd Fitness</a></em></p>
+            <p>Steve tells a great story (maybe it’s familiar to you): He used to publish blogposts according to a schedule and would always be up incredibly late the night before cramming for the post that needed to be written, edited, and published. He since found several hacks—really useful things like technology tips, tools, and strategies.</p>
+            <p><strong>44.&nbsp;<a href="http://blog.bufferapp.com/optimal-work-time-how-long-should-we-work-every-day-the-science-of-mental-strength">The Origin of the 8-Hour Work Day and Why We Should Rethink It</a></strong></p>
+            <p><em>by <a href="http://blog.bufferapp.com/optimal-work-time-how-long-should-we-work-every-day-the-science-of-mental-strength">Leo Widrich, Buffer</a></em></p>
+            <p>This was the first Buffer blogpost I ever read—and boy was it a good one! It set me down a path for thinking of productivity in a whole new way, not so structured as before but rather an intuitive approach where I listened more to how and when my body would respond. I’ve squeezed out a whole ton of extra writing because of it.</p>
+            <h2>General Interestingness</h2>
+            <p><strong>45.&nbsp;<a href="https://medium.com/on-content/pretty-much-everything-i-know-about-the-news-business-ef73bd5fe149">Pretty Much Everything I Know About the News Business</a></strong></p>
+            <p><em>by <a href="https://medium.com/on-content/pretty-much-everything-i-know-about-the-news-business-ef73bd5fe149">Sean Blanda, Medium</a></em></p>
+            <p>Sean’s article touches on a lot of journalism topics that can also fit for online writers, too. Things like understanding an audience and even the aforementioned stock and flow concept get mentioned here.</p>
+            <p><strong>46.&nbsp;<a href="http://www.copyblogger.com/writer-success-2014/">The 7 Things Writers Need to Make a Living</a></strong></p>
+            <p><em>by <a href="http://www.copyblogger.com/writer-success-2014/">Sonia Simone, Copyblogger</a></em></p>
+            <p>A list of intangibles—more like love and confidence and less “a keyboard” and “a thesaurus”—this piece from Sonia is hugely relatable for those of us who write regularly.</p>
+            <p><strong>47.&nbsp;<a href="http://www.copyblogger.com/how-maria-popova-writes/">Here’s How Maria Popova of Brain Pickings Writes</a></strong></p>
+            <p><em>by <a href="http://www.copyblogger.com/how-maria-popova-writes/">Kelton Reid, Copyblogger</a></em></p>
+            <p>I could have picked any number of “Here’s How X Writes” posts from the Copyblogger series, so narrowing it down was hard. Read several, or them all. Maria Popova’s interview was especially fascinating because she creates so much writing content all by herself, and she’s so well-versed in the writing of others.</p>
+            <p><strong>48.&nbsp;<a href="https://training.kalzumeus.com/newsletters/archive/content-marketing-strategy">Making Your Writing Work Harder For You</a></strong></p>
+            <p><em>by <a href="https://training.kalzumeus.com/newsletters/archive/content-marketing-strategy">Patrick McKenzie, Kalzumeus</a></em></p>
+            <p>You’re waaay into my treasures box now. This link is an archived newsletter of Patrick’s that contains so much good stuff on writing, blogging, and marketing strategies. For instance, should you place the date on your blogposts? What types of content should you be posting? Patrick’s answers will get you thinking.</p>
+            <p><strong>49.&nbsp;<a href="https://medium.com/@zmh/the-20-best-lessons-from-social-psychology-5270767c0fac">The 20 Best Lessons from Social Psychology</a></strong></p>
+            <p><em>by <a href="https://medium.com/@zmh/the-20-best-lessons-from-social-psychology-5270767c0fac">Zach Hamed, Medium</a></em></p>
+            <p>Quick, bite-sized snippets of psychology lessons that can help you understand the behavior of the people you’re writing for.</p>
+            <p><strong>50.&nbsp;<a href="http://www.themorningnews.org/article/a-brief-history-of-bloggering">A Brief History of Bloggering</a></strong></p>
+            <p><em>by <a href="http://www.themorningnews.org/article/a-brief-history-of-bloggering">Giles Turnbull, The Morning News</a></em></p>
+            <p>A fake history, for that matter. A really funny piece that, in its own satirical way, sheds some light on what online writing has become. A snippet (that doesn’t really shed any light but is a bit humorous):</p>
+            <blockquote><p>Depending on who you ask, the first bloggering happened in the late 1990s, when the web was still young, and clicking links to pages where you’d click more links was cool. This was in the days when the only use for an animated GIF was to tell people you were still working on your web page.</p></blockquote>
+            <p><strong>51.&nbsp;<a href="http://www.nytimes.com/2001/07/16/arts/writers-writing-easy-adverbs-exclamation-points-especially-hooptedoodle.html?pagewanted=all&amp;src=pm">Easy on the Adverbs, Exclamation Points and Especially Hooptedoodle</a></strong></p>
+            <p><em>by <a href="http://www.nytimes.com/2001/07/16/arts/writers-writing-easy-adverbs-exclamation-points-especially-hooptedoodle.html?pagewanted=all&amp;src=pm">Elmore Leonard, New York Times</a></em></p>
+            <p>This piece originally appeared in the NYT in 2001, and it has tons of good takeaways for authors and writers in general. Stuff like “Never open with the weather” and “Never use an adverb to modify the verb ‘said.'”</p>
+            <p><strong>Bonus:&nbsp;<a href="http://www.mcsweeneys.net/articles/the-ultimate-guide-to-writing-better-than-you-normally-do">THE ULTIMATE GUIDE TO WRITING BETTER THAN YOU NORMALLY DO.</a></strong></p>
+            <p><em>by <a href="http://www.mcsweeneys.net/articles/the-ultimate-guide-to-writing-better-than-you-normally-do">Colin Nissan, McSweeneys</a></em></p>
+            <p>Another fu one. Jokes. And a great one to end on.</p>
+            <blockquote><p>Write Every Day</p>
+            <p>Writing is a muscle. Smaller than a hamstring and slightly bigger than a bicep, and it needs to be exercised to get stronger. Think of your words as reps, your paragraphs as sets, your pages as daily workouts. Think of your laptop as a machine like the one at the gym where you open and close your inner thighs in front of everyone, exposing both your insecurities and your genitals. Because that is what writing is all about.</p></blockquote>
+            <h2>Over to you</h2>
+            <p>What are your favorite writing articles? Which stories have inspired your online writing and taught you new things?&nbsp;Feel free to share this one on Twitter and add in your own favorite articles!</p>
+          <!-- End of Sample Content --></p>
+
+
+
+
+      	</div><!-- .entry-content -->
+
+        </article>
+
+        <style type="text/css">
+
+          #author-box {background-color: #033860; color: #ffffff; border-radius: 3px; padding: 25px 50px; width: 650px;}
+          </style>
+
+                  <div id="author-box" >
+                    <h3>Be the first to get new posts and articles</h3>
+                    <p>I lead the marketing team at <a href="https://buffer.com" class="customize-unpreviewable">Buffer</a>, a SaaS tool with a blog of over 1.2M monthly visits. Let me show you how we got there and how we plan to grow.</p>
+                      <a href="#contact" class="btn" style="">Sign up to receive updates</a>
+                	</div><!-- .author-info -->
+
+
+
+
+
+      <div  style="clear:both;"></div>
+
+
+
+    </main><!-- #main -->
+  </div><!-- #primary -->
+
+
+    <style type="text/css">
+      #related-articles { margin-top: 50px; margin-left: 55px;}
+      #related-articles .card { width: 31%; min-height:400px; border-radius: 3px; float:left; margin: 0 15px 15px 0; background-color:#fafafa;}
+      #related-articles .has-post-thumbnail { min-height: 300px;}
+      #related-articles .card-thumbnail { background-size:cover; width:100%; height:250px; border-top-left-radius: 3px; border-top-right-radius: 3px; }
+      #related-articles .card-title { padding: 25px 15px; background-color: #168eea; margin-top: 0px; margin-bottom: 0; }
+      #related-articles .card-title a {color: #ffffff; }
+      .read-more-categories { width: 600px;}
+      .read-more-categories ul { list-style-type: none; margin: 0 0 25px 0; padding: 0; }
+      .read-more-categories ul li { display: inline; }
+    </style>
+
+        <div id="related-articles" style="">
+
+          <article class="card">
+            <div id="post-986195419" class="post type-post has-post-thumbnail">
+              <img src="http://i.imgur.com/u3ypkva.jpg" class="card-thumbnail">
+            <h2 class="card-title"><a href="#">Content Tips for Busy People: 30 Content Marketing Tips You Can Implement in an Afternoon</a></h2>
+          </div>
+          </article>
+
+          <article class="card">
+            <div id="post-986195419" class="post type-post has-post-thumbnail  ">
+              <img src="http://i.imgur.com/ULRBtX9.jpg" class="card-thumbnail">
+            <h2 class="card-title"><a href="#">How to Get the Content Marketing Job You’ve Always Wanted</a></h2>
+          </div>
+          </article>
+
+          <div  style="clear:both;"></div>
+
+  <div class="read-more-categories">
+        <h3>Read more articles about:</h3>
+        <ul class="" style="">
+          <li style=""><a href="#">Stuff</a></li>
+          <li><a href="#">Things</a></li>
+          <li><a href="#">MIscellany</a></li>
+          <li><a href="#">marketing</a></li>
+          <li><a href="#">leadership and management</a></li>
+          <li><a href="#">Baseball</a></li>
+          <li><a href="#">cars</a></li>
+          <li><a href="#">Mr. Magoo</a></li>
+          <li><a href="#">Content marketing</a></li>
+          <li><a href="#">The bright edge of the world</a></li>
+          <li><a href="#">leadership and management</a></li>
+          <li><a href="#">pie</a></li>
+        </ul>
+
+        <a href="#" class="btn white">View the complete archives</a>
+      </div>
+  </div>
+
+  <div style="clear: both;"></div>
+
+
+    <!-- Footer -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+
+      <div class="site-info">
+      	<a href="https://wordpress.org/">Proudly powered by WordPress</a>
+      </div><!-- .site-info -->
+
+  	</footer><!-- #colophon -->
+
+          <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+          <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+          <script src="js/plugins.js"></script>
+          <script src="js/main.js"></script>
+
+          <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+          <script>
+              (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+              function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+              e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+              e.src='https://www.google-analytics.com/analytics.js';
+              r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+              ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+          </script>
+      </body>
+  </html>
