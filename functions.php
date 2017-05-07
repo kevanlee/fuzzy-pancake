@@ -43,6 +43,12 @@ function pancake_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+function wpdocs_theme_setup() {
+    add_image_size( 'mini-thumb', 100, 100, array( 'center', 'center' ) ); // 300 pixels wide (and unlimited height)
+		add_image_size( 'card-thumb', 300, 250, array( 'center', 'center' ) ); // 300 pixels wide (and unlimited height)
+}
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'pancake' ),
