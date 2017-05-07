@@ -43,12 +43,6 @@ function pancake_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
-function wpdocs_theme_setup() {
-    add_image_size( 'mini-thumb', 100, 100, array( 'center', 'center' ) ); // 300 pixels wide (and unlimited height)
-		add_image_size( 'card-thumb', 300, 250, array( 'center', 'center' ) ); // 300 pixels wide (and unlimited height)
-}
-
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'pancake' ),
@@ -77,6 +71,97 @@ function wpdocs_theme_setup() {
 }
 endif;
 add_action( 'after_setup_theme', 'pancake_setup' );
+
+add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+function wpdocs_theme_setup() {
+	add_image_size( 'mini-thumb', 100, 100, array( 'center', 'center' ) ); // 300 pixels wide (and unlimited height)
+	add_image_size( 'card-thumb', 300, 250, array( 'center', 'center' ) ); // 300 pixels wide (and unlimited height)
+}
+
+add_action( 'customize_register' , 'my_theme_options' );
+
+function my_theme_options( $wp_customize ) {
+	$wp_customize->add_section(
+		'mytheme_header_options',
+		array(
+			'title'       => __( 'Pancake Settings', 'mytheme' ),
+			'priority'    => 200,
+			'capability'  => 'edit_theme_options',
+			'description' => __('Here are some theme things to edit if you would like.', 'mytheme'),
+		)
+	);
+	$wp_customize->add_setting( 'hero_heading',
+		array(
+			'default' => 'Hi, Im Kevan
+Ill tell you everything I know about content marketing for startups'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'hero_heading_control',
+		array(
+			'label'    => __( 'Main heading', 'mytheme' ),
+			'section'  => 'mytheme_header_options',
+			'type'     => 'textarea',
+			'settings' => 'hero_heading',
+			'priority' => 10,
+		)
+	));
+	$wp_customize->add_setting( 'hero_subheading',
+		array(
+			'default' => 'I lead the marketing team at Buffer, a SaaS tool with a blog of over 1.2M monthly visits. Let me show you how we got there and how we plan to grow.'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'hero_subheading_control',
+		array(
+			'label'    => __( 'Main sub-heading', 'mytheme' ),
+			'section'  => 'mytheme_header_options',
+			'type'     => 'textarea',
+			'settings' => 'hero_subheading',
+			'priority' => 10,
+		)
+	));
+	$wp_customize->add_setting( 'button_text',
+		array(
+			'default' => 'Ask me anything'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'button_text_control',
+		array(
+			'label'    => __( 'Main sub-heading', 'mytheme' ),
+			'section'  => 'mytheme_header_options',
+			'type'     => 'text',
+			'settings' => 'button_text',
+			'priority' => 12,
+		)
+	));
+	$wp_customize->add_setting( 'button_link',
+		array(
+			'default' => '/blog'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'button_link_control',
+		array(
+			'label'    => __( 'Button link', 'mytheme' ),
+			'section'  => 'mytheme_header_options',
+			'type'     => 'text',
+			'settings' => 'button_link',
+			'priority' => 13,
+		)
+	));
+}
+
+
+function my_custom_login() {
+echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/css/style-login.css" />';
+}
+add_action('login_head', 'my_custom_login');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.

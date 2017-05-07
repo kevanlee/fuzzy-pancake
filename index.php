@@ -25,7 +25,7 @@ get_header(); ?>
 		<h2 class="opening"><b>Hi, I'm Kevan.</b> <br>I'll tell you everything I know about content marketing for startups.    </h2>
 		<p>I lead the marketing team at <a href="https://buffer.com" class="customize-unpreviewable">Buffer</a>, a SaaS tool with a blog of over 1.2M monthly visits. Let me show you how we got there and how we plan to grow.
 		</p>
-		<a href="#contact" class="btn large" style="">Ask Me Anything ✌︎</a>
+		<a href="<?php echo get_theme_mod('button_link') ?>" class="btn large" style="">Ask Me Anything ✌︎</a>
 	</div>
 </div><!-- #hero -->
 
