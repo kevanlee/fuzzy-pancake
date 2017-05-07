@@ -46,7 +46,12 @@ get_header(); ?>
 			foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 			<article class="card" >
 				<a href="<?php the_permalink(); ?>" ><div id="post-986195419" class="post type-post has-post-thumbnail  " >
-					<?php the_post_thumbnail('medium', array('class' => 'card-thumbnail')); ?>
+					<?php if ( has_post_thumbnail() ) { the_post_thumbnail('card-thumb', array('class' => 'card-thumbnail')); }
+					else { ?>
+
+					<img src="<?php bloginfo('template_directory'); ?>/default.png" />
+
+					<?php } ?>
 				<h2 class="card-title"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h2>
 			</div></a>
 			</article>
@@ -76,7 +81,8 @@ get_header(); ?>
 			while ( have_posts() ) : the_post(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<?php the_post_thumbnail('medium', array('class' => 'thumb')); ?>
+			<?php if ( has_post_thumbnail() ) {
+    		the_post_thumbnail('mini-thumb', array('class' => 'thumb')); } ?>
 			<header class="entry-header">
 				<div class="entry-meta"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_time('F jS, Y'); ?></a>
 				</div><!-- .entry-meta -->
