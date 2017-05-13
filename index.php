@@ -49,7 +49,7 @@ get_header(); ?>
 					<?php if ( has_post_thumbnail() ) { the_post_thumbnail('card-thumb', array('class' => 'card-thumbnail')); }
 					else { ?>
 
-					<img src="<?php bloginfo('template_directory'); ?>/default.png" />
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/default.png" />
 
 					<?php } ?>
 				<h2 class="card-title"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h2>
