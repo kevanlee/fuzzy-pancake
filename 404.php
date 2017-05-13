@@ -14,11 +14,12 @@ get_header(); ?>
 
 			<section class="error-404 not-found">
 				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'pancake' ); ?></h1>
+					<h1 class="page-title"><?php esc_html_e( '404. Well, this is unexpected.', 'pancake' ); ?></h1>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'pancake' ); ?></p>
+					 <div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/Seni87DTJyIl2wEIryQ_sQ/133428590809" data-did="da39a3ee5e6b4b0d3255bfef95601890afd80709"><a href="http://blogdogz.tumblr.com/post/133428590809">http://blogdogz.tumblr.com/post/133428590809</a></div>  <script async src="https://assets.tumblr.com/post.js"></script>
+					<p><?php esc_html_e( 'Sorry, I failed to find this page. Maybe try one of the links below or a search?', 'pancake' ); ?></p>
 
 					<?php
 						get_search_form();
@@ -46,10 +47,6 @@ get_header(); ?>
 
 					<?php
 						endif;
-
-						/* translators: %1$s: smiley */
-						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'pancake' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
 
 						the_widget( 'WP_Widget_Tag_Cloud' );
 					?>

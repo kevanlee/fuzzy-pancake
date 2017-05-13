@@ -1,20 +1,10 @@
-<?php
-/**
- * The sidebar containing the main widget area
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package pancake
- */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
-?>
 
 <aside id="secondary" class="widget-area" role="complementary">
-	<div class="pinned">
-	<section id="microblog">
+	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+	        <?php dynamic_sidebar( 'sidebar-1' ); ?>
+	    <?php else : ?>
+
 
 		<h3>Get new updates first</h3>
 		<p>Marketing lessons and leadership. Sent no more than 1x per week.</p>
@@ -33,20 +23,11 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 		<!--End mc_embed_signup-->
 
-		<article id="post-19" style="padding-left: 15px; " class="post-19 post type-post status-publish format-standard hentry category-uncategorized tag-boat tag-lake">
+
 			<header class="entry-header">
-				<h4 class="entry-title"><a href="https://wp-themes.com/?p=19" rel="bookmark">See a sample</a> →</h4>
-			</header><!-- .entry-header -->
-		</article>
+				<h4 class="entry-title sample-link"><a href="https://wp-themes.com/?p=19" rel="bookmark">See a sample</a> →</h4>
+			</header>
 
 
-
-			</header><!-- .entry-header -->
-		</article>
-
-	</section>
-</div><!-- pinned -->
-
-<!-- <?php dynamic_sidebar( 'sidebar-1' ); ?> -->
-
+		<?php endif; ?>
 </aside><!-- #secondary -->

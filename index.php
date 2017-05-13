@@ -22,10 +22,10 @@ get_header(); ?>
 <div id="hero">
 	<div class="hero-text">
 
-		<h2 class="opening"><b>Hi, I'm Kevan.</b> <br>I'll tell you everything I know about content marketing for startups.    </h2>
-		<p>I lead the marketing team at <a href="https://buffer.com" class="customize-unpreviewable">Buffer</a>, a SaaS tool with a blog of over 1.2M monthly visits. Let me show you how we got there and how we plan to grow.
+		<h2 class="opening"><?php echo get_theme_mod('hero_heading') ?></h2>
+		<p><?php echo get_theme_mod('hero_subheading') ?>
 		</p>
-		<a href="#contact" class="btn large" style="">Ask Me Anything ✌︎</a>
+		<a href="<?php echo get_theme_mod('button_link') ?>" class="btn large" style=""><?php echo get_theme_mod('button_text') ?></a>
 	</div>
 </div><!-- #hero -->
 
@@ -33,14 +33,14 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<!-- Articles -->
+			<h3 class="popular-headline">Most Popular Articles</h3>
 
 		<div id="featured-cards">
-			<h3 style="margin-left:15px;">Most Popular Articles</h3>
 
 			<?php
 
 			global $post;
-			$args = array( 'posts_per_page' => 6, 'offset'=> 1, 'category' => 2 );
+			$args = array( 'posts_per_page' => 6, 'offset'=> 0, 'category_name' => get_theme_mod('featured_cat') );
 
 			$myposts = get_posts( $args );
 			foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
@@ -59,6 +59,8 @@ get_header(); ?>
 			wp_reset_postdata();?>
 
 		</div>
+
+		<div class="clear"></div>
 
 			<div id="articles">
 
@@ -91,7 +93,7 @@ get_header(); ?>
 			</header><!-- .entry-header -->
 		</article>
 		<hr>
-
+		<div class="clear"></div>
 			<?php endwhile;
 
 			the_posts_navigation();
