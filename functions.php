@@ -172,7 +172,7 @@ function my_theme_options( $wp_customize ) {
   $wp_customize,
      'login-image',
      array(
-         'label'      => __( 'Upload a custom login image', 'theme_name' ),
+         'label'      => __( 'Upload a custom login image', 'mytheme' ),
          'section'    => 'mytheme_misc_options',
          'settings'   => 'login-image',
 				 'priority' => 14,
@@ -247,7 +247,7 @@ function my_theme_options( $wp_customize ) {
 
 
 function my_custom_login() {
-echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/css/style-login.css" />';
+echo '<link rel="stylesheet" type="text/css" href="' . get_stylesheet_directory_uri() . '/css/style-login.css" />';
 }
 add_action('login_head', 'my_custom_login');
 
