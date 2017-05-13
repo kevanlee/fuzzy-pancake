@@ -43,12 +43,6 @@ function pancake_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
-function wpdocs_theme_setup() {
-    add_image_size( 'mini-thumb', 100, 100, array( 'center', 'center' ) ); // 300 pixels wide (and unlimited height)
-		add_image_size( 'card-thumb', 300, 250, array( 'center', 'center' ) ); // 300 pixels wide (and unlimited height)
-}
-
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'pancake' ),
@@ -78,6 +72,185 @@ function wpdocs_theme_setup() {
 endif;
 add_action( 'after_setup_theme', 'pancake_setup' );
 
+add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+function wpdocs_theme_setup() {
+	add_image_size( 'mini-thumb', 100, 100, array( 'center', 'center' ) ); // 300 pixels wide (and unlimited height)
+	add_image_size( 'card-thumb', 300, 250, array( 'center', 'center' ) ); // 300 pixels wide (and unlimited height)
+}
+
+add_action( 'customize_register' , 'my_theme_options' );
+
+function my_theme_options( $wp_customize ) {
+	$wp_customize->add_section(
+		'mytheme_header_options',
+		array(
+			'title'       => __( 'Pancake Homepage Settings', 'mytheme' ),
+			'priority'    => 200,
+			'capability'  => 'edit_theme_options',
+			'description' => __('Here are some theme things to edit if you would like.', 'mytheme'),
+		)
+	);
+	$wp_customize->add_section(
+		'mytheme_misc_options',
+		array(
+			'title'       => __( 'Pancake Misc Settings', 'mytheme' ),
+			'priority'    => 300,
+			'capability'  => 'edit_theme_options',
+			'description' => __('Here are some more things to edit if you would like.', 'mytheme'),
+		)
+	);
+	$wp_customize->add_setting( 'hero_heading',
+		array(
+			'default' => 'Your awesome heading goes here'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'hero_heading_control',
+		array(
+			'label'    => __( 'Main heading', 'mytheme' ),
+			'section'  => 'mytheme_header_options',
+			'type'     => 'textarea',
+			'settings' => 'hero_heading',
+			'priority' => 10,
+		)
+	));
+	$wp_customize->add_setting( 'hero_subheading',
+		array(
+			'default' => 'Your brilliant subheading goes here. Feel free to use HTML if you wish.'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'hero_subheading_control',
+		array(
+			'label'    => __( 'Main sub-heading', 'mytheme' ),
+			'section'  => 'mytheme_header_options',
+			'type'     => 'textarea',
+			'settings' => 'hero_subheading',
+			'priority' => 10,
+		)
+	));
+	$wp_customize->add_setting( 'button_text',
+		array(
+			'default' => 'Ask me anything'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'button_text_control',
+		array(
+			'label'    => __( 'Button text', 'mytheme' ),
+			'section'  => 'mytheme_header_options',
+			'type'     => 'text',
+			'settings' => 'button_text',
+			'priority' => 12,
+		)
+	));
+	$wp_customize->add_setting( 'button_link',
+		array(
+			'default' => '/blog'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'button_link_control',
+		array(
+			'label'    => __( 'Button link', 'mytheme' ),
+			'section'  => 'mytheme_header_options',
+			'type'     => 'text',
+			'settings' => 'button_link',
+			'priority' => 13,
+		)
+	));
+	$wp_customize->add_setting( 'login-image',
+		array(
+			'default' => 'https://espnfivethirtyeight.files.wordpress.com/2017/05/2020pool4x3.jpg'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Image_Control(
+  $wp_customize,
+     'login-image',
+     array(
+         'label'      => __( 'Upload a custom login image', 'theme_name' ),
+         'section'    => 'mytheme_misc_options',
+         'settings'   => 'login-image',
+				 'priority' => 14,
+           )
+       )
+   );
+	 $wp_customize->add_setting( 'quote_text',
+ 		array(
+ 			'default' => 'If you give freely, there will always be more.'
+ 		)
+ 	);
+ 	$wp_customize->add_control( new WP_Customize_Control(
+ 	$wp_customize,
+ 		'quote_text',
+ 		array(
+ 			'label'    => __( 'Footer quote', 'mytheme' ),
+ 			'section'  => 'mytheme_header_options',
+ 			'type'     => 'text',
+ 			'settings' => 'quote_text',
+ 			'priority' => 16,
+ 		)
+ 	));
+	$wp_customize->add_setting( 'quote_author',
+		array(
+			'default' => 'Anne Lamott'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'quote_author',
+		array(
+			'label'    => __( 'The author', 'mytheme' ),
+			'section'  => 'mytheme_header_options',
+			'type'     => 'text',
+			'settings' => 'quote_author',
+			'priority' => 17,
+		)
+	));
+	$wp_customize->add_setting( 'featured_cat',
+		array(
+			'default' => 'Featured'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'featured_cat',
+		array(
+			'label'    => __( 'Featured category name', 'mytheme' ),
+			'section'  => 'mytheme_header_options',
+			'type'     => 'text',
+			'settings' => 'featured_cat',
+			'priority' => 18,
+		)
+	));
+	$wp_customize->add_setting( 'head_code',
+		array(
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+	$wp_customize,
+		'head_code',
+		array(
+			'label'    => __( 'Custom code and scripts in the head', 'mytheme' ),
+			'section'  => 'mytheme_misc_options',
+			'type'     => 'textarea',
+			'settings' => 'head_code',
+			'priority' => 19,
+		)
+	));
+}
+
+
+function my_custom_login() {
+echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/css/style-login.css" />';
+}
+add_action('login_head', 'my_custom_login');
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -99,13 +272,23 @@ function pancake_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'pancake' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'pancake' ),
+		'description'   => esc_html__( 'Add widgets here to appear in the sidebar.', 'pancake' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
+register_sidebar( array(
+		'name'          => __( 'Author Box', 'pancake' ),
+		'id'            => 'author',
+		'description'   => __( 'Add widgets here to appear in the author box underneath each post.', 'pancake' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
 add_action( 'widgets_init', 'pancake_widgets_init' );
 
 /**

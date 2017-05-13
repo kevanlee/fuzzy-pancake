@@ -17,13 +17,22 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', get_post_format() );
 
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
 		endwhile; // End of the loop.
 		?>
 
 		<div id="author-box">
+			<?php if ( is_active_sidebar( 'author' ) ) : ?>
+			        <?php dynamic_sidebar( 'author' ); ?>
+			    <?php else : ?>
 	    <h3>Be the first to get new posts and articles</h3>
 	    <p>I lead the marketing team at <a href="https://buffer.com" class="customize-unpreviewable">Buffer</a>, a SaaS tool with a blog of over 1.2M monthly visits. Let me show you how we got there and how we plan to grow.</p>
 	      <a href="#contact" class="btn" style="">Sign up to receive updates</a>
+				<?php endif; ?>
   	</div>
 
 		</main><!-- #main -->
@@ -59,18 +68,6 @@ get_header(); ?>
 		</div><!-- tags -->
 
 	</div>
-
-
-
-	<?php
-	while ( have_posts() ) : the_post();
-
-		if ( comments_open() || get_comments_number() ) :
-			comments_template();
-		endif;
-
-	endwhile; // End of the loop.
-	?>
 
 	<div style="clear: both;"></div>
 

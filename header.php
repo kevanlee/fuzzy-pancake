@@ -21,6 +21,12 @@
 <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
 
+<script src="http://localhost:8888/kevan_test/wp-content/themes/pancake/js/jquery-3.2.1.min.js"
+<!--[if lte IE 9]>
+<script src="js/masonry.pkgd.min.js"></script>
+<![endif]-->
+
+<?php echo get_theme_mod('head_code') ?>
 
 </head>
 
