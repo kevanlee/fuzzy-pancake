@@ -42,7 +42,7 @@ get_header(); ?>
 		<?php
 
 		global $post;
-		$args = array( 'posts_per_page' => 2, 'offset'=> 1, 'category' => 2 );
+		$args = array( 'posts_per_page' => 2, 'orderby' => 'rand', 'offset'=> 1, 'category' => get_theme_mod('featured_cat') );
 
 		$myposts = get_posts( $args );
 		foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
@@ -64,7 +64,7 @@ get_header(); ?>
 			<ul>
 				<li><?php wp_tag_cloud( 'smallest=16&largest=16' ); ?></li>
 			</ul>
-			<a href="/archives" class="btn white">View the complete archives</a>
+			<a href="/page/2/" class="btn white">View the complete archives</a>
 		</div><!-- tags -->
 
 	</div>

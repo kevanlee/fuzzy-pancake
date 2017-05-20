@@ -3,6 +3,8 @@
 Fuzzy Pancake -- WordPress theme
 ===
 
+![Fuzzy Pancake WordPress theme](http://i.imgur.com/TToAsTY.png)
+
 Hi! Thanks for checking out the Fuzzy Pancake WordPress theme. This theme is designed for bloggers and personal brands -- but I guess you could use it for most anything!
 
 Here are a few special features:
@@ -20,42 +22,51 @@ Oh, and one more thing to know:
 
 Getting Started
 ---------------
-
-If you want to use this theme for your WordPress website, you can download the zip file from Github here.
+If you want to use this theme for your WordPress website, you can [download the zip file from Dropbox here]().
 
 //screenshot
 
-A couple notes:
+A couple notes when you install it to WordPress from a Mac:
 
-* You need to unzip it, remove something, then rezip it
-* I don't know how to do this on a Windows computer
+* You'll want to unzip it, then change the name of the folder to 'pancake'
+* Once unzipped, you may need to delete any extra hidden files that Mac OS adds to folders. You can follow [Ian's instructions here](http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/)) for showing hidden files.  
+* Then one last thing: you'll want to remove DS_Store before you re-zip and upload. Here's how:
 
-Theme Setup  
------------
+> If you do not mind jumping down in to terminal, then this is pretty darn easy. If you are in /Users/username, which is your $HOME directory and there is a subdirectory named foo that you want to zip but ignore all .DS_Store files, then do the following:
 
-Screenshots  
------------
+> zip -r foo.zip foo -x "*.DS_Store"
 
-keep it simple, head over to http://underscores.me and generate your `_s` based theme from there. You just input the name of the theme you want to create, click the "Generate" button, and you get your ready-to-awesomize starter theme.
+Fuzzy Pancake settings
+----------------------
 
-If you want to set things up manually, download `_s` from GitHub. The first thing you want to do is copy the `_s` directory and change the name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a five-step find and replace on the name in all the templates.
+All pancake settings are conveniently located in the Customize area of WordPress.
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain.
-2. Search for `_s_` to capture all the function names.
-3. Search for `Text Domain: _s` in style.css.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
-5. Search for `_s-` to capture prefixed handles.
+![Wordpress customize settings](http://i.imgur.com/uwbFj2e.png)
 
-OR
+There are a handful of things you can do here:
 
-* Search for: `'_s'` and replace with: `'megatherium-is-awesome'`
-* Search for: `_s_` and replace with: `megatherium_is_awesome_`
-* Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium-is-awesome` in style.css.
-* Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium_is_Awesome</code>
-* Search for: `_s-` and replace with: `megatherium-is-awesome-`
+1. Update the hero headings and subheads and button links on the homepage.
 
-Then, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
+![Homepage]()
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+2. Set the featured category to show posts in card layout on the homepage and single posts.
 
-Good luck!
+![Featured Cards](http://i.imgur.com/H0TngqP.png)
+
+3. Add a custom quote to the footer
+
+![Footer quote](http://i.imgur.com/ECIap52.png)
+
+Also, there a few things you can edit using the built-in WordPress Widgets section. You can add any widget to the author box that shows up at the end of single posts.
+
+![Author box](http://i.imgur.com/M59V815.png)
+
+And you can add any widget to the sidebar that shows on the homepage and category, archive, and search pages.
+
+![Sidebar](http://i.imgur.com/K2gjeEJ.png)
+
+
+Questions?
+----------------------
+
+Feel free to ask me anything, and I'll do my best to answer!
