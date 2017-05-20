@@ -15,11 +15,11 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<h2><i>Give freely and there will always be more.</i></h2>
-			<h3>&mdash; Anne Lamott</h3>
-			<p><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'pancake' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'pancake' ), 'WordPress' ); ?></a>
+			<h2><i><?php echo get_theme_mod('quote_text') ?></i></h2>
+			<h3>&mdash; <?php echo get_theme_mod('quote_author') ?></h3>
+			<p class="credits"><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'pancake' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'pancake' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'pancake' ), 'pancake', '<a href="https://automattic.com/" rel="designer">Underscores.me</a>' ); ?></p>
+			<?php printf( esc_html__( 'Theme: %1$s | %2$s.', 'pancake' ), 'Fuzzy Pancake', '<a href="https://github.com/kevanlee/fuzzy-pancake">Get a copy</a>' ); ?></p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
