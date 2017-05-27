@@ -29,9 +29,9 @@ get_header(); ?>
 			<?php if ( is_active_sidebar( 'author' ) ) : ?>
 			        <?php dynamic_sidebar( 'author' ); ?>
 			    <?php else : ?>
-	    <h3>Be the first to get new posts and articles</h3>
-	    <p>I lead the marketing team at <a href="https://buffer.com" class="customize-unpreviewable">Buffer</a>, a SaaS tool with a blog of over 1.2M monthly visits. Let me show you how we got there and how we plan to grow.</p>
-	      <a href="#contact" class="btn" style="">Sign up to receive updates</a>
+	    <h3>Information about the author here</h3>
+	    <p>You can customize this by using the WordPress widget section for the Author sidebar. :) </p>
+	      <a href="/" class="btn" style="">Custom button</a>
 				<?php endif; ?>
   	</div>
 
