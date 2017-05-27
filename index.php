@@ -45,14 +45,14 @@ get_header(); ?>
 			$myposts = get_posts( $args );
 			foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 			<article class="card" >
-				<a href="<?php the_permalink(); ?>" ><div id="post-986195419" class="post type-post has-post-thumbnail  " >
+				<a href="<?php the_permalink(); ?>"><div id="post-986195419" class="post type-post has-post-thumbnail  " >
 					<?php if ( has_post_thumbnail() ) { the_post_thumbnail('card-thumb', array('class' => 'card-thumbnail')); }
 					else { ?>
 
-					<img src="<?php bloginfo('template_directory'); ?>/default.png" />
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/default.png" />
 
 					<?php } ?>
-				<h2 class="card-title"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h2>
+				<h2 class="card-title"><?php the_title(); ?></h2>
 			</div></a>
 			</article>
 			<?php endforeach;

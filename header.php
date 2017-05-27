@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
 
-<script src="http://localhost:8888/kevan_test/wp-content/themes/pancake/js/jquery-3.2.1.min.js"
+
 <!--[if lte IE 9]>
 <script src="js/masonry.pkgd.min.js"></script>
 <![endif]-->
@@ -35,11 +35,11 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'pancake' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" rel="home" itemprop="url">
+
 			<?php if ( function_exists( 'the_custom_logo' ) ) {
     	the_custom_logo();
 				} ?>
-			</a>
+
 		<div class="site-branding">
 			<?php
 			if ( is_front_page() && is_home() ) : ?>

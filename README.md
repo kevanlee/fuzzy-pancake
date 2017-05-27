@@ -47,7 +47,7 @@ There are a handful of things you can do here:
 
 1. Update the hero headings and subheads and button links on the homepage.
 
-![Homepage]()
+![Homepage](http://i.imgur.com/TToAsTY.png)
 
 2. Set the featured category to show posts in card layout on the homepage and single posts.
 

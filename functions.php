@@ -82,34 +82,35 @@ add_action( 'customize_register' , 'my_theme_options' );
 
 function my_theme_options( $wp_customize ) {
 	$wp_customize->add_section(
-		'mytheme_header_options',
+		'pancake_header_options',
 		array(
-			'title'       => __( 'Pancake Homepage Settings', 'mytheme' ),
+			'title'       => __( 'Pancake Homepage Settings', 'pancake' ),
 			'priority'    => 200,
 			'capability'  => 'edit_theme_options',
-			'description' => __('Here are some theme things to edit if you would like.', 'mytheme'),
+			'description' => __('Here are some theme things to edit if you would like.', 'pancake'),
 		)
 	);
 	$wp_customize->add_section(
-		'mytheme_misc_options',
+		'pancake_misc_options',
 		array(
-			'title'       => __( 'Pancake Misc Settings', 'mytheme' ),
+			'title'       => __( 'Pancake Misc Settings', 'pancake' ),
 			'priority'    => 300,
 			'capability'  => 'edit_theme_options',
-			'description' => __('Here are some more things to edit if you would like.', 'mytheme'),
+			'description' => __('Here are some more things to edit if you would like.', 'pancake'),
 		)
 	);
 	$wp_customize->add_setting( 'hero_heading',
 		array(
-			'default' => 'Your awesome heading goes here'
+			'default' => 'Your awesome heading goes here',
+			'sanitize_callback' => 'sanitize_hero_heading',
 		)
 	);
 	$wp_customize->add_control( new WP_Customize_Control(
 	$wp_customize,
 		'hero_heading_control',
 		array(
-			'label'    => __( 'Main heading', 'mytheme' ),
-			'section'  => 'mytheme_header_options',
+			'label'    => __( 'Main heading', 'pancake' ),
+			'section'  => 'pancake_header_options',
 			'type'     => 'textarea',
 			'settings' => 'hero_heading',
 			'priority' => 10,
@@ -117,15 +118,16 @@ function my_theme_options( $wp_customize ) {
 	));
 	$wp_customize->add_setting( 'hero_subheading',
 		array(
-			'default' => 'Your brilliant subheading goes here. Feel free to use HTML if you wish.'
+			'default' => 'Your brilliant subheading goes here. Feel free to use HTML if you wish.',
+			'sanitize_callback' => 'sanitize_hero_subheading',
 		)
 	);
 	$wp_customize->add_control( new WP_Customize_Control(
 	$wp_customize,
 		'hero_subheading_control',
 		array(
-			'label'    => __( 'Main sub-heading', 'mytheme' ),
-			'section'  => 'mytheme_header_options',
+			'label'    => __( 'Main sub-heading', 'pancake' ),
+			'section'  => 'pancake_header_options',
 			'type'     => 'textarea',
 			'settings' => 'hero_subheading',
 			'priority' => 10,
@@ -133,15 +135,16 @@ function my_theme_options( $wp_customize ) {
 	));
 	$wp_customize->add_setting( 'button_text',
 		array(
-			'default' => 'Ask me anything'
+			'default' => 'Ask me anything',
+			'sanitize_callback' => 'sanitize_button_text',
 		)
 	);
 	$wp_customize->add_control( new WP_Customize_Control(
 	$wp_customize,
 		'button_text_control',
 		array(
-			'label'    => __( 'Button text', 'mytheme' ),
-			'section'  => 'mytheme_header_options',
+			'label'    => __( 'Button text', 'pancake' ),
+			'section'  => 'pancake_header_options',
 			'type'     => 'text',
 			'settings' => 'button_text',
 			'priority' => 12,
@@ -149,15 +152,16 @@ function my_theme_options( $wp_customize ) {
 	));
 	$wp_customize->add_setting( 'button_link',
 		array(
-			'default' => '/blog'
+			'default' => '/blog',
+			'sanitize_callback' => 'sanitize_button_link',
 		)
 	);
 	$wp_customize->add_control( new WP_Customize_Control(
 	$wp_customize,
 		'button_link_control',
 		array(
-			'label'    => __( 'Button link', 'mytheme' ),
-			'section'  => 'mytheme_header_options',
+			'label'    => __( 'Button link', 'pancake' ),
+			'section'  => 'pancake_header_options',
 			'type'     => 'text',
 			'settings' => 'button_link',
 			'priority' => 13,
@@ -165,15 +169,16 @@ function my_theme_options( $wp_customize ) {
 	));
 	$wp_customize->add_setting( 'login-image',
 		array(
-			'default' => 'https://espnfivethirtyeight.files.wordpress.com/2017/05/2020pool4x3.jpg'
+			'default' => 'https://espnfivethirtyeight.files.wordpress.com/2017/05/2020pool4x3.jpg',
+			'sanitize_callback' => 'sanitize_login-image',
 		)
 	);
 	$wp_customize->add_control( new WP_Customize_Image_Control(
   $wp_customize,
      'login-image',
      array(
-         'label'      => __( 'Upload a custom login image', 'mytheme' ),
-         'section'    => 'mytheme_misc_options',
+         'label'      => __( 'Upload a custom login image', 'pancake' ),
+         'section'    => 'pancake_misc_options',
          'settings'   => 'login-image',
 				 'priority' => 14,
            )
@@ -181,15 +186,16 @@ function my_theme_options( $wp_customize ) {
    );
 	 $wp_customize->add_setting( 'quote_text',
  		array(
- 			'default' => 'If you give freely, there will always be more.'
+ 			'default' => 'If you give freely, there will always be more.',
+			'sanitize_callback' => 'sanitize_quote_text',
  		)
  	);
  	$wp_customize->add_control( new WP_Customize_Control(
  	$wp_customize,
  		'quote_text',
  		array(
- 			'label'    => __( 'Footer quote', 'mytheme' ),
- 			'section'  => 'mytheme_header_options',
+ 			'label'    => __( 'Footer quote', 'pancake' ),
+ 			'section'  => 'pancake_header_options',
  			'type'     => 'text',
  			'settings' => 'quote_text',
  			'priority' => 16,
@@ -197,15 +203,16 @@ function my_theme_options( $wp_customize ) {
  	));
 	$wp_customize->add_setting( 'quote_author',
 		array(
-			'default' => 'Anne Lamott'
+			'default' => 'Anne Lamott',
+			'sanitize_callback' => 'sanitize_quote_author',
 		)
 	);
 	$wp_customize->add_control( new WP_Customize_Control(
 	$wp_customize,
 		'quote_author',
 		array(
-			'label'    => __( 'The author', 'mytheme' ),
-			'section'  => 'mytheme_header_options',
+			'label'    => __( 'The author', 'pancake' ),
+			'section'  => 'pancake_header_options',
 			'type'     => 'text',
 			'settings' => 'quote_author',
 			'priority' => 17,
@@ -213,15 +220,16 @@ function my_theme_options( $wp_customize ) {
 	));
 	$wp_customize->add_setting( 'featured_cat',
 		array(
-			'default' => 'Featured'
+			'default' => 'Featured',
+			'sanitize_callback' => 'sanitize_featured_cat',
 		)
 	);
 	$wp_customize->add_control( new WP_Customize_Control(
 	$wp_customize,
 		'featured_cat',
 		array(
-			'label'    => __( 'Featured category name', 'mytheme' ),
-			'section'  => 'mytheme_header_options',
+			'label'    => __( 'Featured category name', 'pancake' ),
+			'section'  => 'pancake_header_options',
 			'type'     => 'text',
 			'settings' => 'featured_cat',
 			'priority' => 18,
@@ -229,15 +237,16 @@ function my_theme_options( $wp_customize ) {
 	));
 	$wp_customize->add_setting( 'head_code',
 		array(
-			'default' => ''
+			'default' => '',
+			'sanitize_callback' => 'sanitize_head_code',
 		)
 	);
 	$wp_customize->add_control( new WP_Customize_Control(
 	$wp_customize,
 		'head_code',
 		array(
-			'label'    => __( 'Custom code and scripts in the head', 'mytheme' ),
-			'section'  => 'mytheme_misc_options',
+			'label'    => __( 'Custom code and scripts in the head', 'pancake' ),
+			'section'  => 'pancake_misc_options',
 			'type'     => 'textarea',
 			'settings' => 'head_code',
 			'priority' => 19,
@@ -302,6 +311,8 @@ function pancake_scripts() {
 	wp_enqueue_script( 'pancake-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'pancake-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'pancake-jquery', get_template_directory_uri() . '/js/jquery-3.2.1.min.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

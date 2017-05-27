@@ -56,7 +56,7 @@ get_header(); ?>
 			<h3 class="widget-title">Search again</h3><form role="search" method="get" class="search-form" action="http://localhost:8888/kevan_test/">
 				<label>
 					<span class="screen-reader-text">Search for:</span>
-					<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+					<input type="search" class="search-field" placeholder="Search ..." value="" name="s">
 				</label>
 				<input type="submit" class="search-submit" value="Search">
 			</form></section>	    </aside>
